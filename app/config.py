@@ -1,5 +1,6 @@
 import warnings
 from typing import List, Optional
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 _DEFAULT_SECRET_KEY = "decode-labs-super-secret-key-change-in-production"
@@ -27,6 +28,17 @@ class Settings(BaseSettings):
 
     # Database
     DATABASE_URL: str = "sqlite+aiosqlite:///./expense_tracker.db"
+
+    @field_validator("DATABASE_URL", mode="before")
+    @classmethod
+    def normalize_database_url(cls, v: str) -> str:
+        if isinstance(v, str):
+            # Convert cloud PostgreSQL URLs (postgres:// or postgresql://) to asyncpg driver
+            if v.startswith("postgres://"):
+                return v.replace("postgres://", "postgresql+asyncpg://", 1)
+            elif v.startswith("postgresql://") and not v.startswith("postgresql+"):
+                return v.replace("postgresql://", "postgresql+asyncpg://", 1)
+        return v
 
     # Google OAuth 2.0
     GOOGLE_CLIENT_ID: Optional[str] = None
