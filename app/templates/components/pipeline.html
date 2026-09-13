@@ -1,0 +1,41 @@
+<!-- 3-Step Python Execution Pipeline Bar (Screenshot 1 replica) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+  <!-- Step 1: Input Stream -->
+  <div class="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex items-center gap-3 relative">
+    <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+      <i data-lucide="terminal" class="w-5 h-5"></i>
+    </div>
+    <div class="min-w-0">
+      <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">1. Input Stream</div>
+      <div class="text-xs font-mono font-semibold text-slate-700 truncate mt-0.5">expense = float(user_input)</div>
+    </div>
+    <div class="hidden md:block absolute -right-2.5 top-1/2 -translate-y-1/2 text-slate-300 z-10">
+      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+    </div>
+  </div>
+
+  <!-- Step 2: Core Process -->
+  <div class="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex items-center gap-3 relative">
+    <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shrink-0">
+      <i data-lucide="cpu" class="w-5 h-5"></i>
+    </div>
+    <div class="min-w-0">
+      <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">2. Core Process</div>
+      <div class="text-xs font-mono font-semibold text-slate-700 truncate mt-0.5">total = total + expense</div>
+    </div>
+    <div class="hidden md:block absolute -right-2.5 top-1/2 -translate-y-1/2 text-slate-300 z-10">
+      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+    </div>
+  </div>
+
+  <!-- Step 3: Ledger Output -->
+  <div class="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex items-center gap-3">
+    <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+      <i data-lucide="receipt" class="w-5 h-5"></i>
+    </div>
+    <div class="min-w-0">
+      <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">3. Ledger Output</div>
+      <div class="text-xs font-mono font-semibold text-slate-700 truncate mt-0.5">return f"Rs. {total:.2f}"</div>
+    </div>
+  </div>
+</div>
